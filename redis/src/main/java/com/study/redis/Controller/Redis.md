@@ -1,7 +1,10 @@
 # Redis相关接口
 
 ### RedisLocktestController（分布式锁）
-图书售卖时为了防止超卖的情况产生，在buy()方法中引入了redis分布式锁。
+- 图书售卖时为了防止超卖的情况产生，在buy()方法中引入了redis分布式锁。
+- 使用开源框架Redission,只需要通过它所提供的api中的lock和unlock即可完成分布式锁。
+- Redission如果线程拿不到锁，可以设置等待时间等待。
+- 如果锁即将过期，但是业务还没处理完，Redission的看门狗设计可以给即将失效的锁续期。
 * 测试
  使用JMeter工具，设置线程
 ![img.png](img.png)
